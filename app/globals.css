@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 94.1%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply text-foreground antialiased;
+    background-color: hsl(var(--background));
+    background-image: radial-gradient(
+        circle at top left,
+        rgba(56, 189, 248, 0.18),
+        transparent 55%
+      ),
+      radial-gradient(
+        circle at bottom right,
+        rgba(129, 140, 248, 0.14),
+        transparent 55%
+      ),
+      linear-gradient(to bottom, #020617 0%, #020617 40%, #020617 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  /* Custom animations for sidebar */
+  .sidebar-enter {
+    animation: sidebar-enter 0.3s ease-out;
+  }
+
+  .sidebar-exit {
+    animation: sidebar-exit 0.3s ease-in;
+  }
+
+  @keyframes sidebar-enter {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes sidebar-exit {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  /* Smooth transitions for all interactive elements */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Centered content container */
+  .content-centered {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  /* Shared layout helpers */
+  .section-shell {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section-container {
+    max-width: 72rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .section-container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  /* Glassmorphism card */
+  .glass-panel {
+    background: linear-gradient(
+      135deg,
+      rgba(15, 23, 42, 0.9),
+      rgba(15, 23, 42, 0.78)
+    );
+    border-radius: 1.5rem;
+    border: 1px solid rgba(148, 163, 184, 0.45);
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.9),
+      0 0 0 1px rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(18px);
+  }
+
+  .soft-shadow {
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.7);
+  }
+}
