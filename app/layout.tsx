@@ -1,5 +1,12 @@
-// DEBUG: Simplified layout without authentication to prevent redirect loops
 import "./globals.css";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "FaithConnect",
+  icons: {
+    icon: "/favicon.svg",
+  },
+};
 
 export default function RootLayout({
   children,
